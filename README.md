@@ -82,7 +82,7 @@ Sometimes you may want to pass "Global" parameters to your views, without the ha
 ***
 
 #### Disable the Template Engine
-If you want to disable the template engine for some reason, just change the setting in your config file or in the controller by setting
+If you want to disable the template engine for some reason, just change the setting in your config file or in the controller by setting:
 
 	$this->config->set_item('disable_template', TRUE);
 
@@ -151,7 +151,7 @@ Then create a model that extends `MY_Model`
 
 Then load your model.
 
-	$this->load->model('person_model')
+	$this->load->model('person_model');
 
 #### Naming conventions.
 If you follow convention, the CRUD library will figure out the name of the database table your model references.
@@ -173,7 +173,7 @@ If your table name/model name do not follow this convention, you can still use t
 	}
 
 #### Primary Keys
-Many of the CRUD features rely on the table primary key.  The default primary key column is "id".  If your primary key is different, set it a class variable
+Many of the CRUD features rely on the table primary key.  The default primary key column is "id".  If your primary key is different, set it as class variable
 in your model.
 
 	// models/Person_model.php
@@ -202,17 +202,17 @@ Fetch a row by primary key
 
 ***
 
-#### get_by($column, $id)
+#### get_by($column, $value)
 
 	$query = $this->person_model->get_by('last_name', 'Jones');
 	foreach($query->result() as $row)
 	{
-		print $row->last)name;
+		print $row->last_name;
 	}
 	
 ***
 
-#### get\_by\_*($column, $id)
+#### get\_by\_*($value)
 
 Overload of the `get_by()` method that allows you to pass the name of the column you wish to filter on as part of the method name.
 
@@ -257,10 +257,12 @@ Inserts a record into the table.  $data may be an array or object. The result of
 #### update($data, $id = FALSE)
 Updates records in the table by primary key. The result of an update operation will be the just-updated row.
 
-The primary key may be included in the $data parameter, or passed in as the 2nd parameter.
+The primary key may be included in the $data parameter:
 
 	$update = array('phone' => '555-555-5555', 'id' => 1);
 	$result = $this->person_model->update($update);
+
+...Or passed in as the 2nd parameter.
 
 	$update = array('phone' => '555-555-5555');
 	$result = $this->person_model->update($update, 1);
