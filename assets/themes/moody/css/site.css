@@ -1,0 +1,80 @@
+body{
+	background-color: rgb(61,61,61);
+	background-image: url('low_contrast_linen.png');	
+}
+
+span.thumb-gallery-item{
+	padding:0;
+	margin:4px;
+	line-height: 90px;
+}
+
+.ancestry-gallery img{
+	height: 250px;
+}
+
+.navbar{
+
+	-webkit-box-shadow: 0px 3px 8px #000000;
+	-moz-box-shadow:    0px 3px 8px #000000;
+	box-shadow:         0px 3px 8px #000000;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
+	background-color: #DDDDDD;
+}
+
+ul.nav li.active a{
+	background-image:url('current_arrow.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	background-position-y:33px;
+}
+
+div#main-content{
+	background-image: none;
+	background-color: #ffffff;
+	
+	margin: 0 -10px 0 -10px;
+	padding: 10px 20px 60px 20px;	
+	
+	background-image: url('redox_01.png');
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-webkit-box-shadow: 3px 3px 12px #000000;
+	-moz-box-shadow:    3px 3px 12px #000000;
+	box-shadow:         3px 3px 12px #000000;
+}
+
+p, li{
+	font-family: 'Droid Sans', sans-serif;
+}
+
+img.img-shadow{
+	-webkit-box-shadow: 2px 2px 10px #000000;
+	-moz-box-shadow:    2px 2px 10px #000000;
+	box-shadow:         2px 2px 10px #000000;	
+}
+
+h1, h2, h3{
+	font-family: Raleway, sans-serif;;
+/* 	font-family: 'Advent Pro', sans-serif; */
+}
+
+
+ul#twitter-activity li{
+	margin-bottom: 20px;
+}
+
+/* Large desktop */
+@media (min-width: 980px) {
+	
+	div#main-content{
+		margin: 80px 30px 0 30px;
+		padding: 40px 20px 100px 20px;
+	
+	}	
+}

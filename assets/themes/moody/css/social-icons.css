@@ -1,0 +1,65 @@
+.icon-twitter-small{
+	background-image: url('../images/social-icons/16/twitter.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+.icon-github-small{
+	background-image: url('../images/social-icons/16/github.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+.icon-facebook-small{
+	background-image: url('../images/social-icons/16/facebook.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+.icon-flickr-small{
+	background-image: url('../images/social-icons/16/flickr.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+.icon-rss-small{
+	background-image: url('../images/social-icons/16/rss.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 16px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+.icon-rss-large{
+	background-image: url('../images/social-icons/32/rss.png');
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 32px;
+	width: 32px;
+	padding: 0;
+	padding-right: 6px;
+	margin: 0;
+}
