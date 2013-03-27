@@ -40,6 +40,8 @@
 		}	
 	}
 	</style>
+
+	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 </head>
 
 <body>
