@@ -25,6 +25,26 @@ class Home extends CI_Controller{
 		
 		$this->load->view('home/readme', $viewdata);		
 	}
+	
+	public function demoform()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		
+		if ($this->input->post()){
+
+			if ($this->form_validation->run('home/demoform') === FALSE)
+			{
+				// Form Errors.
+			}
+			else
+			{
+				die('success');
+			}
+		}
+		
+		$this->load->view('home/form');
+	}
 }
 
 /* End of file home.php */

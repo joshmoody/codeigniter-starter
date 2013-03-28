@@ -1,6 +1,6 @@
 <?php
 
-class MY_Form_validation{
+class MY_Form_validation extends CI_Form_validation{
 
 
 	protected function jquery_validate_rules()
