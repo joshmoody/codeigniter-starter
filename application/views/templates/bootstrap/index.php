@@ -42,6 +42,7 @@
 	</style>
 	<script src="<?=base_url('assets/js/forms.js');?>"></script>
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	
 </head>
 
 <body>

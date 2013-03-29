@@ -7,6 +7,10 @@ function jquery_ready($output = ''){
 	return $prefix . $output . $suffix;
 }
 
+function jquery_validate($config_group)
+{
+	return '<script src="' . site_url('validation/run') . '?config_group=' . $config_group . '"></script>';
+}
 function client_side_errors($config_group)
 {
 	$output = mark_required_fields($config_group);
@@ -24,7 +28,8 @@ function client_side_errors($config_group)
 		$output .= sprintf("indicate_field_error('#%s');", $field);
 	}
 
-	return jquery_ready($output);
+	//return jquery_ready($output);
+	return $output;
 }
 
 function jquery_validate_rules($config_group)
