@@ -26,7 +26,7 @@ function mark_required_fields($config_group)
 		
 		foreach($required as $r)
 		{
-			$output[] = sprintf("\$('#%s').attr('required', 'required');\n", $r);
+			$output[] = sprintf("required_field('#%s');", $r);
 		}
 		$output[] = '});';
 		$output[] = '</script>';

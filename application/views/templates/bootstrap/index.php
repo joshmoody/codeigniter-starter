@@ -8,8 +8,6 @@
     <meta charset="UTF-8">
 	<link href="<?=bootstrap_theme_url();?>" rel="stylesheet" type="text/css">
 
-	<script src="<?=base_url('assets/js/forms.js');?>"></script>
-	
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/latest/js/bootstrap.min.js"></script>
 
@@ -42,7 +40,7 @@
 		}	
 	}
 	</style>
-
+	<script src="<?=base_url('assets/js/forms.js');?>"></script>
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 </head>
 
