@@ -15,11 +15,13 @@ class MY_Form_validation extends CI_Form_validation{
 		$rules['required'] = 'required';
 		$rules['min_length'] = 'minlength';
 		$rules['max_length'] = 'maxlength';
+		$rules['exact_length'] = 'exactlength';
 		$rules['valid_email'] = 'email';
 		$rules['valid_url'] = 'url';
 		$rules['numeric'] = 'number';
 		$rules['is_natural'] = 'digits';
 		$rules['valid_phone'] = 'phoneUS';
+		$rules['valid_zip'] = 'zipcode';
 		
 		return $rules;
 	}
@@ -95,19 +97,21 @@ class MY_Form_validation extends CI_Form_validation{
 				// Looking for rules like max_length[2] that accepts a name and a parameter.
 				if (preg_match('/(.*)\[(.*)\]/', $item, $matches))
 				{
-					$r['name'] = $matches[1];
-					$r['param'] = $matches[2];
+					$rule_name = $matches[1];
+					$rule_param = $matches[2];
 					
-					if (array_key_exists($r['name'], $jq_rule_map))
+					if (array_key_exists($rule_name, $jq_rule_map))
 					{
-						$jq_rule_items[$field][$jq_rule_map[$r['name']]] = '*' . $r['param'] . '*';
+						$jq_rule_name = $jq_rule_map[$rule_name];
+						$jq_rule_items[$field][$jq_rule_name] = '*' . $rule_param . '*';
 					}
 				}
 				else
 				{
 					if (array_key_exists($item, $jq_rule_map))
 					{
-						$jq_rule_items[$field][$jq_rule_map[$item]] =  'true';
+						$jq_rule_name = $jq_rule_map[$item];
+						$jq_rule_items[$field][$jq_rule_name] = 'true';
 					}
 				}
 			}

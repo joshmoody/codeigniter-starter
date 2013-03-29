@@ -89,6 +89,12 @@ function validation_errors($prefix = '', $suffix = '')
 	}
 
 	$error_string = $OBJ->error_string($prefix, $suffix);
-	
-	return '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $error_string . '</div>';
+	if (strlen(trim($error_string) > 0))
+	{
+		return '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $error_string . '</div>';		
+	}
+	else
+	{
+		return '';		
+	}
 }
