@@ -129,4 +129,4 @@
 
 </form>
 
-<?php echo mark_required_fields('home/demoform');?>
+<?php echo client_side_errors('home/demoform');?>

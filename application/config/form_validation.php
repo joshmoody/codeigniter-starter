@@ -3,14 +3,8 @@ $config = array(
 	'home/demoform' => array(
 
 		array(
-			'field' => 'firstname',
-			'label' => 'First Name',
-			'rules' => 'trim|required|min_length[2]',
-		),
-
-		array(
-			'field' => 'lastname',
-			'label' => 'Last Name',
+			'field' => 'name',
+			'label' => 'Name',
 			'rules' => 'trim|required|min_length[2]',
 		),
 
