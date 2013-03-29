@@ -1,12 +1,5 @@
 <?php
 
-function jquery_ready($output = ''){
-	$prefix = '<script>$(function(){';
-	$suffix = '});</script>';
-	
-	return $prefix . $output . $suffix;
-}
-
 function jquery_validate($config_group)
 {
 	return '<script src="' . site_url('validation/run') . '?config_group=' . $config_group . '"></script>';
@@ -31,14 +24,6 @@ function client_side_errors($config_group)
 
 	//return jquery_ready($output);
 	return $output;
-}
-
-function jquery_validate_rules($config_group)
-{
-	$CI =& get_instance();
-	$CI->load->library('form_validation');
-
-	return $CI->form_validation->jquery_validate_rules($config_group);
 }
 
 function mark_required_fields($config_group)
