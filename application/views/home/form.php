@@ -1,6 +1,6 @@
 <h2>Form Validation</h2>
 
-<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal" id="demo-form" novalidate="novalidate">
+<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal" id="foo" novalidate="novalidate">
 
 	<?php echo validation_errors('<div class="error">', '</div>'); ?>
 
@@ -130,3 +130,31 @@
 </form>
 
 <?php echo client_side_errors('home/demoform');?>
+
+<script>
+function run_jquery_validate(form_id)
+{
+	// Disable HTML5 validation.
+	$('form').attr('novalidate', 'novalidate');
+
+	// Run jquery validation
+	$('#foo').validate({
+			errorElement: "span",
+			errorClass: "help-inline",
+			onfocusout: function(element){
+				$(element).valid();
+				},
+			highlight: function(element, errorClass, validClass){
+					indicate_field_error(element);
+				},
+			unhighlight: function(element, errorClass, validClass){
+					remove_field_error(element);
+				},
+			rules: <?=jquery_validate_rules('home/demoform');?>
+		});
+}
+
+$(function() {
+ 	run_jquery_validate('#foo')
+});
+</script>

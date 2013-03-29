@@ -9,17 +9,19 @@ class MY_Form_validation extends CI_Form_validation{
 		$this->set_custom_errors();
 	}
 
-	protected function jquery_validate_rules()
+	protected function jquery_rule_map()
 	{
-		$rules = new stdclass();
-		$rules->required = 'required';
-		$rules->min_length = 'minlength';
-		$rules->max_length = 'maxlength';
-		$rules->valid_email = 'email';
-		$rules->valid_url = 'url';
-		$rules->numeric = 'number';
-		$rules->is_natural = 'digits';
-		$rules->valid_phone = 'phoneUS';
+		$rules = array();
+		$rules['required'] = 'required';
+		$rules['min_length'] = 'minlength';
+		$rules['max_length'] = 'maxlength';
+		$rules['valid_email'] = 'email';
+		$rules['valid_url'] = 'url';
+		$rules['numeric'] = 'number';
+		$rules['is_natural'] = 'digits';
+		$rules['valid_phone'] = 'phoneUS';
+		
+		return $rules;
 	}
 	
 	protected function set_custom_errors()
@@ -75,25 +77,44 @@ class MY_Form_validation extends CI_Form_validation{
 		return $required;
 	}
 	
-	public function parse_rules($config_group)
+	public function jquery_validate_rules($config_group)
 	{
 		$rules = $this->get_rules($config_group);
+		$jq_rule_map = $this->jquery_rule_map();
 		
-		$ruleset = array();
+		$jquery_rules = array();
 		
 		foreach($rules as $rule)
 		{
-			$ruleset[$rule['field']]['rules'] = explode('|', $rule['rules']);
-			$ruleset[$rule['field']]['field'] = $rule['field'];
-			$ruleset[$rule['field']]['label'] = $rule['label'];
+			$field = $rule['field'];
 			
-			if (in_array('required', $ruleset[$rule['field']]['rules']))
+			$rule_list = explode('|', $rule['rules']);
+
+			foreach($rule_list as $item)
 			{
-				$ruleset[$rule['field']]['required'] = TRUE;
+				// Looking for rules like max_length[2] that accepts a name and a parameter.
+				if (preg_match('/(.*)\[(.*)\]/', $item, $matches))
+				{
+					$r['name'] = $matches[1];
+					$r['param'] = $matches[2];
+					
+					if (array_key_exists($r['name'], $jq_rule_map))
+					{
+						$jq_rule_items[$field][$jq_rule_map[$r['name']]] = '*' . $r['param'] . '*';
+					}
+				}
+				else
+				{
+					if (array_key_exists($item, $jq_rule_map))
+					{
+						$jq_rule_items[$field][$jq_rule_map[$item]] =  'true';
+					}
+				}
 			}
 		}
-		
-		return $ruleset;
+
+		$encoded = str_replace('*', '"', str_replace('"', '', json_encode($jq_rule_items, JSON_FORCE_OBJECT)));
+		return $encoded;
 	}	
 	
 	function get_error_array()

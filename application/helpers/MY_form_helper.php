@@ -11,12 +11,11 @@ function client_side_errors($config_group)
 {
 	$output = mark_required_fields($config_group);
 
-    if (FALSE === ($OBJ =& _get_validation_object()))
-    {
-        return '';
-    }
-    
-	$errors = $OBJ->get_error_array();
+	$CI =& get_instance();
+	$CI->load->library('form_validation');
+
+
+	$errors = $CI->form_validation->get_error_array();
 
 	$error_keys = array_keys($errors);
 
@@ -28,14 +27,20 @@ function client_side_errors($config_group)
 	return jquery_ready($output);
 }
 
+function jquery_validate_rules($config_group)
+{
+	$CI =& get_instance();
+	$CI->load->library('form_validation');
+
+	return $CI->form_validation->jquery_validate_rules($config_group);
+}
+
 function mark_required_fields($config_group)
 {
-    if (FALSE === ($OBJ =& _get_validation_object()))
-    {
-        return '';
-    }
+	$CI =& get_instance();
+	$CI->load->library('form_validation');
     
-	$required = $OBJ->get_required_fields($config_group);
+	$required = $CI->form_validation->get_required_fields($config_group);
 
 	$output = array();
 			
