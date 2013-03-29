@@ -2,7 +2,11 @@
 
 function jquery_validate($config_group)
 {
-	return '<script src="' . site_url('validation/run') . '?config_group=' . $config_group . '"></script>';
+	$output  = '<script src="' . site_url('validation/process') . '?config_group=' . $config_group . '"></script>';
+	$output .= '<script>';
+	$output .= client_side_errors($config_group);
+	$output .= '</script>';
+	return $output;
 }
 
 function client_side_errors($config_group)

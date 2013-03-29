@@ -11,7 +11,7 @@ class Validation extends CI_Controller{
 		$this->load->helper('form');
 	}
 	
-	public function run()
+	public function process()
 	{
 		$config_group = $this->input->get('config_group');
 		

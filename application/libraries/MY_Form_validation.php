@@ -33,7 +33,7 @@ class MY_Form_validation extends CI_Form_validation{
 		$rules['numeric'] = 'number';
 		$rules['is_natural'] = 'digits';
 		$rules['valid_phone'] = 'phoneUS';
-		$rules['valid_zip'] = 'zipcode';
+		//$rules['valid_zip'] = 'zipcode';
 		
 		return $rules;
 	}

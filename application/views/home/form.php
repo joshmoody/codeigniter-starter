@@ -9,7 +9,7 @@
 	<div class="control-group">
 		<label for="name" class="control-label">Name</label>
 		<div class="controls">
-			<input type="text" id="name" name="name" required="required" />
+			<input type="text" id="name" name="name" required="required" value="<?=set_value('name');?>" />
 			<?=form_error('name');?>
 		</div>
 	</div>
@@ -17,7 +17,7 @@
 	<div class="control-group">
 		<label for="address" class="control-label">Address</label>
 		<div class="controls">
-			<input type="text" id="address" name="address" class="address"/>
+			<input type="text" id="address" name="address" class="address" value="<?=set_value('address');?>" />
 			<?=form_error('address');?>
 		</div>
 	</div>
@@ -25,7 +25,7 @@
 	<div class="control-group">
 		<label for="city" class="control-label">City</label>
 		<div class="controls">
-			<input type="text" id="city" name="city"/>
+			<input type="text" id="city" name="city" value="<?=set_value('city');?>" />
 			<?=form_error('city');?>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 	<div class="control-group">
 		<label for="zip" class="control-label">Zip Code</label>
 		<div class="controls">
-			<input type="text" id="zip" name="zip" class="zip" />
+			<input type="text" id="zip" name="zip" class="zip" value="<?=set_value('zip');?>" />
 			<?=form_error('zip');?>
 		</div>
 	</div>
@@ -102,7 +102,7 @@
 	<div class="control-group">
 		<label for="phone" class="control-label">Phone</label>
 		<div class="controls">
-			<input type="tel" id="phone" name="phone" />
+			<input type="tel" id="phone" name="phone" value="<?=set_value('phone');?>" />
 			<?=form_error('phone');?>
 		</div>
 	</div>
@@ -110,7 +110,7 @@
 	<div class="control-group">
 		<label for="email" class="control-label">Email</label>
 		<div class="controls">
-			<input type="email" id="email" name="email" />
+			<input type="email" id="email" name="email" value="<?=set_value('email');?>" />
 			<?=form_error('email');?>
 		</div>
 	</div>
@@ -118,7 +118,7 @@
 	<div class="control-group">
 		<label for="url" class="control-label">Website</label>
 		<div class="controls">
-			<input type="url" id="url" name="url" />
+			<input type="url" id="url" name="url" value="<?=set_value('url');?>" />
 			<?=form_error('url');?>
 		</div>
 	</div>
