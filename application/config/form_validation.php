@@ -8,13 +8,11 @@ $config = array(
 			'rules' => 'trim|required|min_length[2]',
 		),
 
-/*
 		array(
 			'field' => 'city',
 			'label' => 'City',
 			'rules' => 'trim|required',
 		),
-*/
 		
 		array(
 			'field' => 'state',

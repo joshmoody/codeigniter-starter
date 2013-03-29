@@ -40,6 +40,8 @@
 		}	
 	}
 	</style>
+	
+	<link href="<?=base_url('assets/css/forms.css');?>" rel="stylesheet" type="text/css">
 	<script src="<?=base_url('assets/js/forms.js');?>"></script>
 	<script src="<?=base_url('assets/js/third-party/jquery.maskedinput.min.js');?>"></script>
 	<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
