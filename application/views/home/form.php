@@ -128,3 +128,5 @@
 	</div>								
 
 </form>
+
+<?php echo mark_required_fields('home/demoform');?>

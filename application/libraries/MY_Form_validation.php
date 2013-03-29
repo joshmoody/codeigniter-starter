@@ -51,6 +51,46 @@ class MY_Form_validation extends CI_Form_validation{
 		}	
 	}
 	
+	public function get_required_fields($config_group)
+	{
+		$rules = $this->get_rules($config_group);
+		
+		$ruleset = array();
+		
+		$required = array();
+
+		foreach($rules as $rule)
+		{
+			if (preg_match('/required/', $rule['rules']))
+			{
+				$required[] = $rule['field'];
+			}
+		}
+		
+		return $required;
+	}
+	
+	public function parse_rules($config_group)
+	{
+		$rules = $this->get_rules($config_group);
+		
+		$ruleset = array();
+		
+		foreach($rules as $rule)
+		{
+			$ruleset[$rule['field']]['rules'] = explode('|', $rule['rules']);
+			$ruleset[$rule['field']]['field'] = $rule['field'];
+			$ruleset[$rule['field']]['label'] = $rule['label'];
+			
+			if (in_array('required', $ruleset[$rule['field']]['rules']))
+			{
+				$ruleset[$rule['field']]['required'] = TRUE;
+			}
+		}
+		
+		return $ruleset;
+	}	
+	
 	function get_error_array()
 	{
 		return $this->_error_array;

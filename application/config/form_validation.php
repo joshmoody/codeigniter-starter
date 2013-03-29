@@ -5,7 +5,7 @@ $config = array(
 		array(
 			'field' => 'firstname',
 			'label' => 'First Name',
-			'rules' => 'trim|required|min_length[2]|',
+			'rules' => 'trim|required|min_length[2]',
 		),
 
 		array(
