@@ -1,6 +1,6 @@
 <h2>Form Validation</h2>
 
-<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal" class="validate">
+<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal validate">
 
 	<?php echo validation_errors(); ?>
 
