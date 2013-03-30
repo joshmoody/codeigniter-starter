@@ -2,7 +2,14 @@
 
 function jquery_validate($config_group)
 {
-	return '<script src="' . site_url('validation/process') . '?config_group=' . $config_group . '"></script>';
+	$CI =& get_instance();
+	$CI->load->library('form_validation');
+	
+	$viewdata = array();
+	$viewdata['validation_rules'] = $CI->form_validation->jquery_validate_rules($config_group);
+	$viewdata['required_fields'] = json_encode($CI->form_validation->get_required_fields($config_group), TRUE);
+	
+	return $CI->load->view('templates/jquery_validate/javascript.php', $viewdata, TRUE, FALSE);
 }
 
 function validation_errors_array()

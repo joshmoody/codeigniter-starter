@@ -1,3 +1,4 @@
+<script>
 /**
  * Supporting javascript for CI client side validation.
  */
@@ -112,3 +113,4 @@ $(function(){
  	mark_all_required_fields(required_fields);
  	init_jquery_validate();
 });
+</script>
