@@ -1,4 +1,6 @@
 <?php
+# See http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#rulereference for available rules.
+
 $config = array(
 	'home/demoform' => array(
 
@@ -13,13 +15,13 @@ $config = array(
 			'label' => 'City',
 			'rules' => 'trim|required',
 		),
-		
+
 		array(
 			'field' => 'state',
 			'label' => 'State',
 			'rules' => 'trim|required',
 		),
-
+		
 		array(
 			'field' => 'address',
 			'label' => 'Address',
@@ -43,7 +45,7 @@ $config = array(
 			'label' => 'Email',
 			'rules' => 'trim|required|valid_email',
 		),
-		
+
 		array(
 			'field' => 'url',
 			'label' => 'Web Site',

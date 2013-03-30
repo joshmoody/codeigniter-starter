@@ -146,16 +146,18 @@ class MY_Form_validation extends CI_Form_validation{
 	protected function jquery_rule_map()
 	{
 		$rules = array();
-		$rules['required'] = 'required';
-		$rules['min_length'] = 'minlength';
-		$rules['max_length'] = 'maxlength';
-		$rules['exact_length'] = 'exactlength';
-		$rules['valid_email'] = 'email';
-		$rules['valid_url'] = 'url';
-		$rules['numeric'] = 'number';
-		$rules['is_natural'] = 'digits';
-		$rules['valid_phone'] = 'phoneUS';
-		//$rules['valid_zip'] = 'zipcode';
+		
+		// The array key is the CodeIgniter rule.  The array value is the corresponding jquery validation rule.
+		$rules['required']		= 'required';
+		$rules['min_length']	= 'minlength';
+		$rules['max_length']	= 'maxlength';
+		$rules['exact_length']	= 'exactlength';
+		$rules['valid_email']	= 'email';
+		//$rules['valid_url']		= 'url';
+		$rules['numeric']		= 'number';
+		$rules['is_natural']	= 'digits';
+		$rules['valid_phone']	= 'phoneUS';
+		$rules['valid_zip']		= 'zipcode';
 		
 		return $rules;
 	}

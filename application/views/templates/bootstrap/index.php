@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
 	<link href="<?=bootstrap_theme_url();?>" rel="stylesheet" type="text/css">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/latest/js/bootstrap.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

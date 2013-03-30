@@ -1,6 +1,6 @@
 <h2>Form Validation</h2>
 
-<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal" id="foo" novalidate="novalidate">
+<form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal" class="validate">
 
 	<?php echo validation_errors(); ?>
 
@@ -114,7 +114,7 @@
 			<?=form_error('email');?>
 		</div>
 	</div>
-
+	
 	<div class="control-group">
 		<label for="url" class="control-label">Website</label>
 		<div class="controls">
