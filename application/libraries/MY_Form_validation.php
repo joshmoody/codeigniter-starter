@@ -153,7 +153,7 @@ class MY_Form_validation extends CI_Form_validation{
 		$rules['max_length']	= 'maxlength';
 		$rules['exact_length']	= 'exactlength';
 		$rules['valid_email']	= 'email';
-		//$rules['valid_url']		= 'url';
+		$rules['valid_url']		= 'url';
 		$rules['numeric']		= 'number';
 		$rules['is_natural']	= 'digits';
 		$rules['valid_phone']	= 'phoneUS';

@@ -1,5 +1,5 @@
 # CodeIgniter-Starter
-Twitter Bootstrap and Bootswatch enabled CodeIgniter skeleton with flexible templating engine and CRUD model operations.
+Twitter Bootstrap and Bootswatch enabled CodeIgniter skeleton with flexible templating engine, CRUD model operations, and enhanced form validation.
 
 ## Why?
 I keep finding myself downloading CodeIgniter, then copying various classes from other projects every time I
@@ -21,6 +21,7 @@ Now I can just clone this project and be up and running with all I need in no ti
 	- insert()
 	- update()
 	- delete()
+- Client Side Form Validation using CodeIgniter's Server Side rules.
 
 ***
 
@@ -301,3 +302,40 @@ Returns object with details on the last error encountered for this database conn
 	print $last_error->message;
 	print $last_error->query;
 
+***
+
+### Client Side Validation
+The extended Form_validation library and form helper included with this project allows you to use the same form validation rules
+client side and server side via the jQuery validation plugin.
+
+#### To Use
+1. Configure your rules config/form_validation.php as documented in the "Creating Sets of Rules" heading at http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#savingtoconfig
+
+2. Load the Form Validation Library and Form Helper. In your controller method is a good place.
+
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+
+3. At the bottom of your view:
+
+		<?=jquery_validate($config_group);?>
+
+Where $config_group is the name of the rule set you configured in step 1.
+
+Not all CI validation rules have been mapped to jQuery validation rules.  Below are the ones currently available.
+
+ - required
+ - min_length
+ - max_length
+ - exact_length
+ - valid_email
+ - numeric
+ - is_natural
+
+ - valid_url (custom rule)
+ - valid_phone (custom rule)
+ - valid_zip (custom rule)
+
+#### More Info on Validation 
+	- http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#rulereference
+	- http://docs.jquery.com/Plugins/Validation#List_of_built-in_Validation_methods
