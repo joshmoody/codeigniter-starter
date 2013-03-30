@@ -1,4 +1,8 @@
-<h2>Form Validation</h2>
+<?php if (FALSE !== ($message = $this->session->flashdata('message'))):?>
+	<p class="alert alert-info"><?php echo $message;?></p>
+<?php endif;?>
+
+<p>Please complete the form below. Required fields are marked with "<span class="required">*</span>".</p>
 
 <form method="POST" action="<?=site_url('home/demoform');?>" class="form-horizontal validate">
 

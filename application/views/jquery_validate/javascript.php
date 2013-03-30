@@ -1,7 +1,16 @@
-<script>
+<?php
 /**
  * Supporting javascript for CI client side validation.
+ *
+ * The validation rules used by jquery validate all come from
+ * Code Igniter and are passed in to this view as JSON for interoperability between PHP/Javascript.
+ *
+ * After the "var" declarations below this file is all Javascript. I packaged the whole thing up as PHP for 2 reasons:
+ *		1) Javascript needs access to these PHP variables containing JSON.
+ *		2) Easier installation than referencing external js from the view.
  */
+?>
+<script>
 var required_fields		= <?php echo $required_fields;?>;
 var validation_rules	= <?php echo $validation_rules;?>;
 
@@ -90,7 +99,6 @@ function init_jquery_validate()
 	// Disable HTML5 validation.
 	$('.validate').attr('novalidate', 'novalidate');
 
-
 	// Run jquery validation
 	$('.validate').validate({
 		errorElement: "span",
@@ -109,8 +117,13 @@ function init_jquery_validate()
 }
 
 $(function(){
+	// If this is a post back, highlight any fields with errors.
 	highlight_field_errors()
+	
+	// Apply a "*" to indicate any required fields.
  	mark_all_required_fields(required_fields);
+ 	
+ 	// Initialize client side validation via jquery validate.
  	init_jquery_validate();
 });
 </script>

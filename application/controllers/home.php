@@ -28,6 +28,8 @@ class Home extends CI_Controller{
 	
 	public function demoform()
 	{
+		$this->template->set('page_title', 'Client + Server Form Validation');
+		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
@@ -39,7 +41,8 @@ class Home extends CI_Controller{
 			}
 			else
 			{
-				die('success');
+				$this->session->set_flashdata('message', 'Form Validation Success!');
+				redirect('home/demoform');
 			}
 		}
 		
