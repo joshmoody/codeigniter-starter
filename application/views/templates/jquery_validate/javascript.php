@@ -1,3 +1,6 @@
+/**
+ * Supporting javascript for CI client side validation.
+ */
 var required_fields		= <?php echo $required_fields;?>;
 var validation_rules	= <?php echo $validation_rules;?>;
 
@@ -40,6 +43,9 @@ function mark_required_field(selector)
 	$(selector).parents(".control-group").children(".control-label").prepend('<span class="required">*</span>');
 }
 
+/**
+ * Accepts array of required fields and marks each as required.
+ */
 function mark_all_required_fields(required_fields)
 {
 	if (required_fields.length > 0)
@@ -50,6 +56,7 @@ function mark_all_required_fields(required_fields)
 		}
 	}
 }
+
 /**
  * Define custom jquery validate methods.
  */
