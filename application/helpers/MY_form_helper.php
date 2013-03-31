@@ -35,6 +35,11 @@ function form_error($field = '', $prefix = '<span class="help-inline validation-
 	return $OBJ->error($field, $prefix, $suffix);
 }
 
+function alert($text, $class='alert')
+{
+	return sprintf('<div class="%s"><button type="button" class="close" data-dismiss="alert">&times;</button>%s</div>', $class, $text);
+}
+
 /**
  * Apply Bootstrap Styling to error summary.
  */
@@ -49,10 +54,36 @@ function validation_errors($prefix = '', $suffix = '')
 	
 	if (strlen(trim($error_string) > 0))
 	{
-		return '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $error_string . '</div>';		
+		return alert($error_string);		
 	}
 	else
 	{
 		return '';		
 	}
+}
+
+function messages()
+{
+	$CI =& get_instance();
+	$CI->load->library('messages');
+	$messages = $CI->messages->get_all();
+
+	$output = array();
+	
+	if (count($messages['info']) > 0)
+	{
+		$output[] = alert(ul(array_values($messages['info']), array('class' => 'unstyled')), 'alert alert-info');
+	}
+	
+	if (count($messages['error']) > 0)
+	{
+		$output[] = alert(ul(array_values($messages['error']), array('class' => 'unstyled')), 'alert alert-error');
+	}
+	
+	if (count($messages['success']) > 0)
+	{
+		$output[] = alert(ul(array_values($messages['success']), array('class' => 'unstyled')), 'alert alert-success');
+	}
+	
+	return join("\n", $output);
 }

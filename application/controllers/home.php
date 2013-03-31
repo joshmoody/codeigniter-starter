@@ -17,6 +17,11 @@ class Home extends CI_Controller{
 	
 	public function index()
 	{
+		$this->load->library('messages');
+		$this->messages->add('FYI', 'info');
+		$this->messages->add('Oops', 'error');
+		$this->messages->add('Success', 'success');
+		
 		$this->load->view('home/index');
 	}
 	
@@ -47,7 +52,8 @@ class Home extends CI_Controller{
 			}
 			else
 			{
-				$this->session->set_flashdata('message', 'Form Validation Success!');
+				$this->load->library('messages');
+				$this->messages->add('Form Validation Success!', 'success');
 				redirect('home/demoform');
 			}
 		}

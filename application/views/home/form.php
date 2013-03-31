@@ -1,6 +1,4 @@
-<?php if (FALSE !== ($message = $this->session->flashdata('message'))):?>
-	<p class="alert alert-info"><?php echo $message;?></p>
-<?php endif;?>
+<?=messages();?>
 
 <p>Please complete the form below. Required fields are marked with "<span class="required">*</span>".</p>
 

@@ -82,6 +82,13 @@ Sometimes you may want to pass "Global" parameters to your views, without the ha
 
 ***
 
+#### Setting additional stylesheets and javascript
+If you want to render additional style sheets or javascript to the `<head>` of the rendered template, do this somewhere in your controller before loading your view:
+
+	$this->template->stylesheet('url/to/stylesheet.css');
+	$this->template->javascript('url/to/javascript.js');
+* URLS may be fully qualified, or relative to the base url
+
 #### Disable the Template Engine
 If you want to disable the template engine for some reason, just change the setting in your config file or in the controller by setting:
 
@@ -339,3 +346,32 @@ Not all CI validation rules have been mapped to jQuery validation rules.  Below 
 #### More Info on Validation 
 	- http://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#rulereference
 	- http://docs.jquery.com/Plugins/Validation#List_of_built-in_Validation_methods
+
+***
+
+### Messages Library
+Sometimes you want to pass a message or messages back to the view to indicate the success or failure of the operation.
+To aid in this task, there is messages library that stores informational, error, and success messages in session. There is also a messages function
+in `MY_form_helpers.php` to display these using Twitter Bootstrap's alert class.
+
+### To Set Messages
+
+	$this->load->library('messages'); // This library is already auto-loaded in `config/autoload.php`.
+	
+	$this->messages->error('Oops');
+	$this->messages->info('FYI');
+	$this->messages->info('Success!');
+	
+### To display the message in a view:
+	
+	<?=messages();?>
+	
+
+*Note: Once the messages() function has been called, it automatically removes all messages from session.*
+
+***
+
+### Acknowledgments
+The following third-party libraries are included in this package:
+
+- https://github.com/appleboy/CodeIgniter-Native-Session
