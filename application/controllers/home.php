@@ -7,6 +7,12 @@ class Home extends CI_Controller{
 		parent::__construct();
 		$this->template->set('site_title', 'CodeIgniter Starter');
 		$this->template->set('page_title', 'CodeIgniter Starter');
+
+		# Inject additional javascript and css
+		$this->template->javascript('assets/js/third-party/jquery.maskedinput.min.js');
+		$this->template->javascript('//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js');
+		$this->template->javascript('assets/js/forms.js');
+		$this->template->stylesheet('assets/css/style.min.css');
 	}
 	
 	public function index()

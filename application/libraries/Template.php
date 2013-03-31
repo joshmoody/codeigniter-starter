@@ -8,10 +8,21 @@ class Template{
 	{
 		$this->CI =& get_instance();
 		$this->load->library('parser');
+		$this->load->helper('html');
 
 		if (!isset($this->CI->template_vars))
 		{
 			$this->CI->template_vars = array();
+		}
+		
+		if (!array_key_exists('stylesheets', $this->CI->template_vars))
+		{
+			$this->CI->template_vars['stylesheets'] = array();
+		}
+
+		if (!array_key_exists('scripts', $this->CI->template_vars))
+		{
+			$this->CI->template_vars['scripts'] = array();
 		}
 	}
 	
@@ -28,10 +39,12 @@ class Template{
 		
 		$layout = $this->get_template_content($template_name);
 
+		$this->inject_head_content($layout);
+		
 		$this->CI->template_vars['body'] = $this->output->get_output();
 
 		$this->wrap_content();
-				
+		
 		$content = $this->parser->parse_string($layout, $this->CI->template_vars);
 		
 		# Send cache control headers.
@@ -41,6 +54,21 @@ class Template{
 
 		# Use the default _display() function to include all it's goodies like profiling.
 		$this->CI->output->_display($content);
+	}
+	
+	protected function inject_head_content(&$layout)
+	{
+		if (count($this->CI->template_vars['stylesheets']) > 0)
+		{
+			$styles = join("\n", $this->CI->template_vars['stylesheets']) . "\n</head>";
+			$layout = str_replace('</head>', $styles, $layout);
+		}
+
+		if (count($this->CI->template_vars['scripts']) > 0)
+		{
+			$scripts = join("\n", $this->CI->template_vars['scripts']) . "\n</head>";
+			$layout = str_replace('</head>', $scripts, $layout);
+		}
 	}
 	
 	protected function get_template_content($template_name = FALSE)
@@ -83,6 +111,50 @@ class Template{
 		if ($wrapper)
 		{
 			$this->CI->template_vars['body'] = $this->parser->parse($wrapper, $this->CI->template_vars, TRUE);
+		}
+	}
+
+	/**
+	 * Inject a css file into the final page.
+	 *
+	 * @param $urls - Array of URLS or single URL string.
+	 */
+	public function stylesheet($urls = array())
+	{
+		if (!is_array($urls))
+		{
+			$x = $urls;
+			$urls = array();
+			$urls[] = $x;
+		}
+
+		foreach($urls as $url)
+		{
+			$this->CI->template_vars['stylesheets'][] = link_tag($url, 'stylesheet', 'text/css');
+		}
+	}
+
+	/**
+	 * Inject a javascript file into the final page.
+	 *
+	 * @param $urls - Array of URLS or single URL string.
+	 */
+	public function javascript($urls = array())
+	{
+		if (!is_array($urls))
+		{
+			$x = $urls;
+			$urls = array();
+			$urls[] = $x;
+		}
+		
+		foreach($urls as $url)
+		{
+			if (!preg_match('/^http/', $url) && !preg_match('/\/\//', $url))
+			{
+				$url = base_url($url);
+			}
+			$this->CI->template_vars['scripts'][] = sprintf('<script src="%s"></script>', $url);
 		}
 	}
 	
