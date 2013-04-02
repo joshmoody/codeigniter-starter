@@ -3,7 +3,7 @@
 $config['default_dsn'] = 'mysqli://root:root@localhost/test';
 
 // Which template file to use?  Path should be a sub directory of 'views/templates'
-$config['template'] = 'moody/index';
+$config['template'] = 'bootstrap/index';
 
 /**
  * Use 'bootstrap' for out of the box Twitter Bootstrap theme, or any of the theme names

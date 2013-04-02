@@ -8,7 +8,7 @@
 				<span class="icon-bar"></span>
 	        </a> 
 	        
-	        <a class="brand" href="#">{site_title}</a>
+	        <a class="brand" href="<?=site_url('home/index');?>">{site_title}</a>
 	        
 	        <!-- Everything you want hidden at 940px or less, place within here -->
 	        <div class="nav-collapse collapse">
